@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>News List</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor="let item of items">
+        <img [src]="item.urlToImage"/>
+        <ion-card-content>
+            <ion-card-title>
+                {{ item.title }}
+            </ion-card-title>
+            <div class="date">
+                <div class="date__item">
+                    <p>{{ item.publishedAt | date:'dd-MMM-yyyy' }}</p>
+                </div>
+            </div>
+            <p>
+                {{ item.description }}
+            </p>
+        </ion-card-content>
+    </ion-card>
+   
+</ion-content>

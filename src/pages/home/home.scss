@@ -1,0 +1,34 @@
+page-home {
+	.item {
+		position: relative;
+		text-align: center;
+		height: 150px;
+		width: 100%;
+
+		h2 {
+			color: white;
+			font-size: 1.5em;
+			position: absolute;
+		    left: 0;
+		    right: 0;
+		    top: 50%;
+		    transform: translateY(-50%);
+		}
+
+		&.item--green {
+			background: #8ED2C9;
+		}
+
+		&.item--red {
+			background: #FF7A5A;
+		}
+
+		&.item--yellow {
+			background: #FFB85F;
+		}
+
+		&.item--grey {
+			background: #74828F;
+		}
+	}
+}
