@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -12,11 +12,17 @@ export class ListPage {
   public items:any;
   public create:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public loadingCtrl: LoadingController) {
      this.getData();
   }
 
   getData() {
+
+    let loading = this.loadingCtrl.create({
+      content: "Please Wait"
+    });
+
+    loading.present();
 
     let newsType = this.navParams.get('id');
 
@@ -26,8 +32,7 @@ export class ListPage {
     data.subscribe(result => {
 
       this.items = result.articles;
-
-      let newDate = new Date(result.articles.publishAt);
+      loading.dismiss();
 
     })
 
